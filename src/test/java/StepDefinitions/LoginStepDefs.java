@@ -2,6 +2,7 @@ package StepDefinitions;
 
 
 import Scripts.Commons;
+import Scripts.Configuration;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,8 +10,12 @@ import org.junit.Assert;
 import pages.HomePage;
 import pages.LoginPage;
 
+import java.util.Properties;
+
 
 public class LoginStepDefs {
+    private final static Properties KEY_PROPERTIES = Configuration.KEY_PROPERTIES_FILE;
+
     @Given("The user visit the sauce page")
     public void navigateToSauceDemoPage(){
         Commons.navigateTo("https://www.saucedemo.com");
@@ -24,6 +29,12 @@ public class LoginStepDefs {
     @When("The user click on login button")
     public void buttonClick(){
         LoginPage.onClickButton();
+    }
+
+    @Then("^a message is displayed with the text '(.*)'$")
+    public void errorIsDisplayed(String errorMessage){
+        String message = KEY_PROPERTIES.getProperty(errorMessage);
+        Assert.assertTrue("The message is not correct",LoginPage.showErrorMessage(message));
     }
 
     @Then("user is logged")

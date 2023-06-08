@@ -18,7 +18,6 @@ Feature: Test sauceDemo login
       | standard_user | secret_sauce |
 
 
-  @sauceDemo
   Scenario Outline: the user try to login with locked credentials
     When The user type username: '<user>' and password: '<pass>'
     And The user click on login button
@@ -29,3 +28,12 @@ Feature: Test sauceDemo login
       | locked_out_user | secret_sauce | @PROPERTY_LOGIN_WITH_LOCKED_USER_MESSAGE    |
       |                 |              | @PROPERTY_LOGIN_WITH_EMPTY_USERNAME_MESSAGE |
       | standard_user   |              | @PROPERTY_LOGIN_WITH_EMPTY_PASSWORD_MESSAGE |
+
+
+  @sauceDemo
+  Scenario: the user add and remove objects to the cart
+    When The user type username: 'standard_user' and password: 'secret_sauce'
+    And The user click on login button
+    Then The user click on add to cart button
+    And The user click on cart button
+    And The user click on remove button

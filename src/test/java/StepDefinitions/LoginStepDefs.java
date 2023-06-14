@@ -7,7 +7,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import pages.CartPage;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -42,23 +41,5 @@ public class LoginStepDefs {
     public void isLogged(){
         HomePage.clickOnMenuButton();
         Assert.assertTrue("The user is not logged", HomePage.verifyLogOutButton());
-    }
-
-    @Then("The user click on add to cart button")
-    public void addToCart() throws InterruptedException {
-        HomePage.clickOnAddToCartButton();
-        Thread.sleep(1000);
-    }
-
-    @Then("The user click on cart button")
-    public void cartButton() throws InterruptedException {
-        HomePage.clickOnCartButton();
-        Thread.sleep(500);
-    }
-
-    @Then("The user click on remove button")
-    public void removeButton() throws InterruptedException {
-        CartPage.clickOnRemoveButton();
-        Thread.sleep(500);
     }
 }

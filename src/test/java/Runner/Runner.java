@@ -1,6 +1,5 @@
 package Runner;
 
-import pages.BasePage;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
@@ -14,11 +13,11 @@ import org.junit.runner.RunWith;
                 "Hooks"
         },
         stepNotifications = true,
-        tags = "@sauceDemo"
+        tags = "@sauceDemo1"
 )
 public class Runner {
     @AfterClass
     public static void tearDown(){
-        BasePage.closeBrowser();
+        //BasePage.closeBrowser();
     }
 }

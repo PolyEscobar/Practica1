@@ -12,6 +12,9 @@ import org.junit.runner.RunWith;
                 "StepDefinitions",
                 "Hooks"
         },
+        plugin = {
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+        },
         stepNotifications = true,
         tags = "@sauceDemo1"
 )

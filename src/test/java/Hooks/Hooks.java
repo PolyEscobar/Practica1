@@ -1,7 +1,12 @@
 package Hooks;
 
 import Utils.BrowserUtils;
-import org.junit.Before;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 import static pages.BasePage.driver;
 
 public class Hooks {
@@ -13,6 +18,15 @@ public class Hooks {
             BrowserUtils.setWindowsSize(driver, windowSize);
         } else {
             BrowserUtils.maxWindowSize(driver);
+        }
+    }
+
+    @AfterStep
+    public void addScreenshot(Scenario scenario){
+        if (scenario.isFailed()){
+            byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "image");
+            System.out.println("The screenshot is done");
         }
     }
 }

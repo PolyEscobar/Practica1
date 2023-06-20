@@ -31,5 +31,5 @@ jobs:
         distribution: 'temurin'
         gradle-version: '8.1.1'
     - name: Run test with chrome driver
-      run: gradle test -DwebDriver=chrome
+      run: gradle test -DwebDriver=chrome -DwindowSize=1334x750
       

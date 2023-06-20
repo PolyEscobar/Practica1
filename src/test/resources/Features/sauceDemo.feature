@@ -74,3 +74,26 @@ Feature: Test sauceDemo login
 
       | user          | password     | product             |
       | standard_user | secret_sauce | Sauce Labs Backpack |
+
+
+  @sauceDemo1
+  Scenario: the user fill de fields
+    When The user type username: 'standard_user' and password: 'secret_sauce'
+    And The user click on login button
+    And The user add the product 'Sauce Labs Backpack' to cart
+    And The user add the product 'Sauce Labs Bike Light' to cart
+    And The user add the product 'Sauce Labs Bolt T-Shirt' to cart
+    And The user click on cart button
+    And The user click on checkout button
+    And The user type his personal data
+      | fields | user1 |
+      | first-name | ruben |
+      | last-name | diaz |
+      | postal-code | 07006 |
+    And The user click on continue button
+#Then the user check if the name of the products 'Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt'
+    Then the user check if the names of the products are
+      | names                   |
+      | Sauce Labs Backpack     |
+      | Sauce Labs Bike Light   |
+      | Sauce Labs Bolt T-Shirt |

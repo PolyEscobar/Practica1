@@ -42,7 +42,7 @@ Feature: Test sauceDemo cart
                 |           | Viyuela  | 07006  | @PROPERTY_MISSING_FIRST_NAME_MESSAGE  |
 
 
-    @sauceDemo1
+
     Scenario Outline: the users check if the product added to cart is correct
         When The user type username: 'standard_user' and password: 'secret_sauce'
         And The user click on login button
@@ -56,3 +56,5 @@ Feature: Test sauceDemo cart
         Examples:
             | product             |
             | Sauce Labs Backpack |
+
+

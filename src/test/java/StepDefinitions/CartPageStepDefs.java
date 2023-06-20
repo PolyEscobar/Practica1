@@ -60,4 +60,13 @@ public class CartPageStepDefs {
     public void checkProductName(String product){
         Assert.assertTrue("The product is not the desired", CheckoutPage.checkProductName(product));
     }
+
+    @Then("^the user check if the names of the products are$")
+    public void checkNamesOfTheProducts(DataTable dt){
+        List<Map<String, String>> rows = dt.asMaps(String.class, String.class);
+        for (Map<String, String> columns : rows){
+            String firstName = columns.get("names");
+            Assert.assertTrue("Error: the products are not correct " +firstName, CheckoutPage.checkTheNames(firstName) );
+        }
+    }
 }

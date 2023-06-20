@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 public class Commons extends BasePage {
@@ -78,5 +79,15 @@ public class Commons extends BasePage {
             throw new RuntimeException(e);
         }
         return properties;
+    }
+
+    public static List<WebElement> findElementsByXpath(String locator){
+        try {
+            List <WebElement> elements = driver.findElements(By.xpath(locator));
+            return elements;
+        }catch (Exception e){
+            Assert.fail("Fail to find element: "+ locator);
+            return null;
+        }
     }
 }

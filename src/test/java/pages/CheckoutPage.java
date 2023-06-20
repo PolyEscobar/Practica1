@@ -1,6 +1,9 @@
 package pages;
 
 import Scripts.Commons;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class CheckoutPage {
     private final static String FIRST_NAME_INPUT = "//input[@id='first-name']";
@@ -36,5 +39,15 @@ public class CheckoutPage {
         return(Commons.getText(Commons.findElementByXpath(PRODUCT_NAME)).matches(product));
     }
 
-
+    public static boolean checkTheNames(String firstProduct){
+        //Commons.getText(Commons.findElementByXpath(String.format(PRODUCT_NAME, firstProduct)));
+        List<WebElement> lista = Commons.findElementsByXpath(PRODUCT_NAME);
+        for(WebElement nameProducts : lista){
+            String name = nameProducts.getText();
+            if(name.matches(firstProduct)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

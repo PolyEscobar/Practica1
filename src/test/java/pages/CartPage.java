@@ -14,4 +14,6 @@ public class CartPage {
         Commons.click(Commons.findElementByXpath(CHECKOUT_BUTTON));
     }
 
+
+
 }

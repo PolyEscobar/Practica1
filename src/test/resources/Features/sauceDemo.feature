@@ -2,6 +2,7 @@ Feature: Test sauceDemo login
   Background: navigate to SauceDemo
     Given The user visit the sauce page
 
+  @Login
   Scenario: login successful
     When The user type username: 'standard_user' and password: 'secret_sauce'
     And The user click on login button
@@ -30,7 +31,7 @@ Feature: Test sauceDemo login
       | standard_user   |              | @PROPERTY_LOGIN_WITH_EMPTY_PASSWORD_MESSAGE |
 
 
-  @sauceDemo
+  @sauceDemo1
   Scenario: the user add and remove objects to the cart
     When The user type username: 'standard_user' and password: 'secret_sauce'
     And The user click on login button
@@ -76,7 +77,7 @@ Feature: Test sauceDemo login
       | standard_user | secret_sauce | Sauce Labs Backpack |
 
 
-  @sauceDemo1
+
   Scenario: the user fill de fields
     When The user type username: 'standard_user' and password: 'secret_sauce'
     And The user click on login button
@@ -86,9 +87,9 @@ Feature: Test sauceDemo login
     And The user click on cart button
     And The user click on checkout button
     And The user type his personal data
-      | fields | user1 |
-      | first-name | ruben |
-      | last-name | diaz |
+      | fields      | user1 |
+      | first-name  | ruben |
+      | last-name   | diaz  |
       | postal-code | 07006 |
     And The user click on continue button
 #Then the user check if the name of the products 'Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt'

@@ -1,3 +1,4 @@
+@SauceDemo
 Feature: Test sauceDemo login
   Background: navigate to SauceDemo
     Given The user visit the sauce page
@@ -31,7 +32,6 @@ Feature: Test sauceDemo login
       | standard_user   |              | @PROPERTY_LOGIN_WITH_EMPTY_PASSWORD_MESSAGE |
 
 
-  @sauceDemo1
   Scenario: the user add and remove objects to the cart
     When The user type username: 'standard_user' and password: 'secret_sauce'
     And The user click on login button

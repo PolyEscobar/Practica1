@@ -1,3 +1,4 @@
+@SauceDemo
 Feature: Test sauceDemo cart
     Background: navigate to SauceDemo
         Given The user visit the sauce page

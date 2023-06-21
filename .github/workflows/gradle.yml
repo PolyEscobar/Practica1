@@ -19,7 +19,7 @@ permissions:
 jobs:
   run-test:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - name: repo
@@ -31,5 +31,10 @@ jobs:
         distribution: 'temurin'
         gradle-version: '8.1.1'
     - name: Run test with chrome driver
-      run: gradle test -DwebDriver=chrome -DwindowSize=1334x750
-      
+      run: gradle test -DwebDriver=chrome -DwindowSize=1334x750 -DheadlessMode=false -Dcucumber.filter.tags="@sauceDemo" --info
+    - name: upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: htmlReport
+        path: Test-reports/
+      if: always()

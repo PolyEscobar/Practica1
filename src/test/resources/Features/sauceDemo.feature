@@ -87,13 +87,15 @@ Feature: Test sauceDemo login
     And The user click on cart button
     And The user click on checkout button
     And The user type his personal data
+
       | fields      | user1 |
       | first-name  | ruben |
       | last-name   | diaz  |
       | postal-code | 07006 |
+
     And The user click on continue button
-#Then the user check if the name of the products 'Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt'
     Then the user check if the names of the products are
+
       | names                   |
       | Sauce Labs Backpack     |
       | Sauce Labs Bike Light   |

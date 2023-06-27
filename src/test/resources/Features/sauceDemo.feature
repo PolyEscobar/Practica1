@@ -3,7 +3,6 @@ Feature: Test sauceDemo login
   Background: navigate to SauceDemo
     Given The user visit the sauce page
 
-  @Login
   Scenario: login successful
     When The user type username: 'standard_user' and password: 'secret_sauce'
     And The user click on login button

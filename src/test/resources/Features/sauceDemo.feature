@@ -15,7 +15,7 @@ Feature: Test sauceDemo login
     And The user click on login button
     Then user is logged
     Examples:
-      | user | password |
+      | user          | password     |
       | standard_user | secret_sauce |
       | standard_user | secret_sauce |
 
@@ -61,7 +61,7 @@ Feature: Test sauceDemo login
 
     Examples:
 
-      | user | password |
+      | user          | password     |
       | standard_user | secret_sauce |
 
 
@@ -75,7 +75,6 @@ Feature: Test sauceDemo login
 
       | user          | password     | product             |
       | standard_user | secret_sauce | Sauce Labs Backpack |
-
 
 
   Scenario: the user fill de fields

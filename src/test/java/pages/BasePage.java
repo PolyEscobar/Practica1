@@ -19,7 +19,7 @@ public class BasePage {
     private static final String FIREFOX_DRIVER = "firefox";
     private static boolean headlessMode = Boolean.parseBoolean(System.getProperty("headlessMode"));
 
-    static {
+    public static void setUp() {
         switch(WEB_DRIVER){
             case CHROME_DRIVER:
                 System.out.println("chrome driver selected");

@@ -31,8 +31,7 @@ jobs:
         distribution: 'temurin'
         gradle-version: '8.1.1'
     - name: Run test with chrome driver
-      run: gradle test -DwebDriver=chrome -DwindowSize=1334x750 -DheadlessMode=false -Dcucumber.filter.tags="@sauceDemo" --info
-    - name: upload artifact
+      run: gradle test -DwebDriver=chrome -DwindowSize=1334x750 -DheadlessMode=false -Dcucumber.filter.tags="@sauceDemo"
       uses: actions/upload-artifact@v3
       with:
         name: htmlReport

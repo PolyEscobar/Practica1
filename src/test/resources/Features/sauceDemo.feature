@@ -1,4 +1,4 @@
-@SauceDemo
+@sauceDemo
 Feature: Test sauceDemo login
   Background: navigate to SauceDemo
     Given The user visit the sauce page

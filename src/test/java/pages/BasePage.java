@@ -29,7 +29,6 @@ public class BasePage {
                 System.out.println("firefox driver selected");
                 firefoxDriver();
                 break;
-
         }
     }
 

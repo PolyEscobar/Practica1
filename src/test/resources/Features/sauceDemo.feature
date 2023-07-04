@@ -64,6 +64,7 @@ Feature: Test sauceDemo login
       | standard_user | secret_sauce |
 
 
+  @errorScenario
   Scenario Outline: the user check if the color of the button have changed
     When The user type username: '<user>' and password: '<password>'
     And The user click on login button
@@ -98,3 +99,16 @@ Feature: Test sauceDemo login
       | Sauce Labs Backpack     |
       | Sauce Labs Bike Light   |
       | Sauce Labs Bolt T-Shirt |
+
+
+    @skipScenario
+    Scenario Outline: the user check if the color of the button have changed
+      When the driver is 'chrome' the test is been skipped
+      And The user type username: '<user>' and password: '<password>'
+      And The user click on login button
+      And The user add the product '<product>' to cart
+      Then the user verifies if the button of '<product>' have been changed to remove color
+
+      Examples:
+        | user          | password     | product             |
+        | standard_user | secret_sauce | Sauce Labs Backpack |

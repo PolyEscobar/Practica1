@@ -3,6 +3,7 @@ package StepDefinitions;
 
 import Scripts.Commons;
 import Scripts.Configuration;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -41,5 +42,13 @@ public class LoginStepDefs {
     public void isLogged(){
         HomePage.clickOnMenuButton();
         Assert.assertTrue("The user is not logged", HomePage.verifyLogOutButton());
+    }
+
+    @When("^the driver is '(.*)' the test is been skipped$")
+    public void skipTest(String driver){
+        String DRIVER = "chrome";
+        if (driver.equalsIgnoreCase("chrome")) {
+            throw new PendingException("skip");
+        }
     }
 }
